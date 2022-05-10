@@ -70,6 +70,7 @@
     background-size: cover;
   }
   .back-video{
+    width: 100%;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -83,12 +84,14 @@
   
   .nav1{
     background: transparent;
-    height: 80px;
+    width: 100%;
+    height: 70px;
     color:#fff;
   }
   
   .nav2{
     background: var(--fondo);
+    width: 100%;
     height:100px;
     color:#000;
     
@@ -104,8 +107,8 @@
   margin: 12px;}
   
 .foto:hover{
-border-radius:60%;
--webkit-border-radius:50%;
+border-radius:0%;
+-webkit-border-radius:80%;
 box-shadow: 0px 0px 15px 15px #53504d;
 -webkit-box-shadow: 0px 0px 15px 15px #0a0908;
 transform: rotate(360deg);
@@ -116,12 +119,11 @@ transform: rotate(360deg);
   .contenedor-nav{
     display: flex;
     margin: auto;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     max-width:1000px;
-    height:inherit;
-    overflow: hidden;
+    
   }
   
   nav .enlaces a{
@@ -145,14 +147,14 @@ transform: rotate(360deg);
   .icono{
     display:none;
     font-size: 24px;
-    padding: 23.5px 20px;
+    padding: 15.5px 20px;
   }
   
 
 .contenedor{
     margin:auto;
     padding: var(--margenes) 0;
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     text-align: center;
     overflow: hidden;
@@ -231,6 +233,7 @@ transform: rotate(360deg);
     font-weight:500;
     padding: 20px;
     font-size: 30px;
+    text-align: center;
     
 }
 .text2{
@@ -374,3 +377,186 @@ font-size: 50px;
       margin: auto;
     }
   }
+
+  /* ------------------------- */
+/* Mediaqueies */
+/* ------------------------- */
+@media screen and (max-width: 1000px) {
+	.menu .contenedor-enlaces-nav {
+		padding: 0 10px;
+	}
+
+	.menu .contenedor {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.menu .contenedor {
+		width: 90%;
+	}
+
+	.menu .contenedor-botones-menu {
+		display: flex;
+	}
+
+	.menu .contenedor-enlaces-nav {
+		padding: 20px;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		position: fixed;
+		left: 0;
+		background: #232F3F;
+		height: 100vh;
+		width: 80%;
+		z-index: 2000;
+		transition: .3s ease all;
+		transform: translate(-100%);
+	}
+
+	.menu .contenedor-enlaces-nav.activo {
+		transform: translate(0%);
+	}
+
+	.menu .btn-departamentos {
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+	}
+
+	.menu .btn-departamentos i {
+		position: static;
+		margin-left: 20px;
+		transform: rotate(-90deg);
+	}
+
+	.menu .enlaces {
+		width: 100%;
+
+	}
+
+	.menu .enlaces a {
+		display: block;
+		margin: 10px 0;
+		padding: 10px;
+	}
+
+	.grid {
+		display: grid;
+		transition: .3s ease all;
+		transform: translateX(-100%);
+		z-index: 3000;
+		width: 80%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		grid-template-areas: "categorias categorias categorias categorias";
+	}
+
+	.grid.activo {
+		transform: translateX(0%);
+	}
+
+	.grid::before {
+		display: none;
+	}
+
+	.grid .btn-regresar {
+		display: inline-block;
+	}
+
+	.grid .categorias .subtitulo {
+		display: block;
+	}
+
+	.grid .contenedor-subcategorias {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transition: .3s ease all;
+		transform: translateX(-100%);
+		overflow: auto;
+	}
+
+	.grid .contenedor-subcategorias.activo {
+		transform: translateX(0%);
+	}
+
+	.grid .contenedor-subcategorias .subcategoria {
+		grid-template-columns: 1fr;
+	}
+
+	.grid .contenedor-subcategorias .banner-subcategoria {
+		width: 100%;
+		min-height: 250px;
+		max-height: 350px;
+	}
+
+	.grid .enlaces-subcategoria {
+		min-height: 50vh;
+		overflow: auto;
+	}
+
+	.grid .contenedor-subcategorias .galeria-subcategoria a {
+		width: 25%;
+		height: 100%;
+	}
+}
+
+
+
+@media screen and (max-width: 700px) {
+
+	.icono {
+		display: block;
+		cursor: pointer;
+	}
+
+	.enlaces {
+		position: fixed;
+		top: 80px;
+		background: #2c3e50;
+		left: 0;
+		height: 100%;
+		transition: 1s;
+		width: 0;
+		overflow: hidden;
+	}
+
+	.enlaces a {
+		display: block;
+		width: 100%;
+		height: 50px;
+		padding: 20px;
+		text-align: center;
+		background: #34495e;
+		color: #fff;
+	}
+
+	.content-card {
+		width: 48%;
+		margin-bottom: var(--margenes);
+	}
+
+	:root {
+		--margenes: 30px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	:root {
+		--espacios-contenido: 25px;
+	}
+
+	.marca-logo {
+		width: 80%;
+	}
+
+	.iconos {
+		margin: auto;
+	}
+}
